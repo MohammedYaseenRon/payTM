@@ -21,9 +21,6 @@ export const authOptions = {
             });
 
             if (existingUser) {
-                console.log(`password from db is ${existingUser.password}`);
-                console.log(`Raw from db is ${credentials.password}`);
-                console.log(`hashed password from db is ${hashedPassword}`)
                 const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
                 if (passwordValidation) {
                     return {
@@ -58,7 +55,7 @@ export const authOptions = {
     ],
     secret: process.env.JWT_SECRET || "secret",
     callbacks: {
-        // TODO: can u fix the type here? Using any is bad
+       
         async session({ token, session }: any) {
             session.user.id = token.sub
 
