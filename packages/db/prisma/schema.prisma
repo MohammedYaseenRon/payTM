@@ -13,7 +13,7 @@ model User {
   name        String? 
   number      String  @unique
   password    String
-  OnRamoTransaction OnRampTransaction[]
+  OnRampTransaction OnRampTransaction[]
   Balance      Balance[]
 }
 
